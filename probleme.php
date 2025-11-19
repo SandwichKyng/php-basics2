@@ -22,11 +22,17 @@ for ($i = 0; $i < count($klubaBiedri); $i++) {
 }
 
 
-$totalStundas = 0;
-for ($i = 0; $i < count($klubaBiedri); $i++) {
-    $totalStundas += $klubaBiedri[$i]["stundas"];
-}
+$totalStundas = totalHours($klubaBiedri);
 echo "Total stundas: $totalStundas\n";
+
+function totalHours($list)
+{
+    $hours = 0;
+    for ($i = 0; $i < count($list); $i++) {
+        $hours += $list[$i]["stundas"];
+    }
+    return $hours;
+}
 
 
 for ($i = 0; $i < count($klubaBiedri); $i++) {
@@ -34,6 +40,7 @@ for ($i = 0; $i < count($klubaBiedri); $i++) {
         echo $klubaBiedri[$i]["name"] . " " . $klubaBiedri[$i]["surname"] . " ";
     }
 }
+
 
 
 ?>
